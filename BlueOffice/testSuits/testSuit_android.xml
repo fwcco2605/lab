@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="precodition">
+	<!--platformName in {web ,android ,ios } -->
+	<parameter name="platformName" value="Android" />
+	<!--APP PARAM -->
+	<parameter name="appName" value="ioffice.apk" />
+	<parameter name="filePath"
+		value="C:\Users\WenchaoFei\Downloads\UIAutoTest-master\UIAutoTest" />
+	<parameter name="platformVersion" value="5.0" />
+	<parameter name="deviceName" value="" />
+	<parameter name="appPackage" value="blueoffice.app" />
+	<parameter name="appActivity" value="blueoffice.app.StartActivity" />
+	<parameter name="port" value="4723" />
+	<parameter name="timeout" value="30" />
+	<parameter name="udid" value="4d002701e9b3303f" />
+	<!--WEB PARAM -->
+	<parameter name="browser_name" value="chrome" />
+	<parameter name="remote_url" value="" />
+
+	<test name="APP_Tests" >
+		<groups>
+			<define name="登录">
+				<include name="滑动引导页" />
+				<include name="邮箱登录" />
+				<include name="手机号登录" />
+			</define>
+			<define name="微任务">
+				<include name="通过侧边栏进入微任务模块" />
+				<include name="创建微任务" />
+			</define>
+			<dependencies>
+                <!-- <group name="邮箱登录" depends-on="滑动引导页"></group> -->
+				<!-- <group name="创建微任务" depends-on="通过侧边栏进入微任务模块"></group> -->
+				<!-- name,depends-on均为参数为必须 -->
+				<!-- <group name="p2" depends-on="p0"></group> -->
+				<!-- <group name="p3" depends-on="p0"></group> -->
+				<!-- <group name="p4" depends-on="p0"></group> -->
+			</dependencies>
+			<run>
+				<include name="登录" />
+				<include name="微任务" />
+				<!--<exclude name="xxxx" /> -->
+			</run>
+		</groups>
+		<classes>
+			<parameter name="accountName" value="tryhe@iblue100.com" />
+			<parameter name="pwd" value="12345678" />
+			<parameter name="phone" value="13524849951" />
+			<parameter name="taskTitle" value="任务" />
+			<parameter name="taskContent" value="内容" />
+			<class name="com.yipinapp.uiautotest.testsuits.testcases.app.Test1" />
+			<class name="com.yipinapp.uiautotest.testsuits.testcases.app.Test2" />
+		</classes>
+	</test>
+
+	<listeners>
+		<listener class-name="com.yipinapp.uiautotest.util.testng.TestResultListener" />
+		<listener class-name="com.yipinapp.uiautotest.util.testng.RetryListener" />
+	</listeners>
+</suite>

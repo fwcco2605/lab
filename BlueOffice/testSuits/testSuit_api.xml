@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+	<test name="Test" preserve-ord="true">
+		<classes>
+			<class name="com.yipin.ifautotest.MomentGardenApi" />
+			<methods>
+				<include name="login" />
+				<include name="setMoment" />
+				<include name="getMoment" />
+				<include name="setComment" />
+				<include name="delComment" />
+				<include name="delMoment" />
+			</methods>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
